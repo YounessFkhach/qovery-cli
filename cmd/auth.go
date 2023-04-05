@@ -187,7 +187,7 @@ func runHeadlessFlow() {
 }
 
 func tokenExpiration() time.Time {
-	oneDay := time.Second * time.Duration(86400)
+	oneDay := time.Second * time.Duration(60)
 	return time.Now().Local().Add(oneDay)
 }
 
