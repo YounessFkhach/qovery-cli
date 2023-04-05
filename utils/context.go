@@ -230,7 +230,7 @@ func GetAccessToken() (AccessTokenType, AccessToken, error) {
 
 	token = string(context.AccessToken)
 	if token == "" {
-		return "", "", errors.New("Access token has not been found. Please, sign in using 'qovery auth' command. ")
+		return "", "", errors.New("Access token has not been found. Please, sign in using 'qovery auth' commandee. ")
 	}
 
 	expired := context.AccessTokenExpiration.Before(time.Now())
@@ -257,7 +257,7 @@ func GetAccessTokenExpiration() (time.Time, error) {
 	PrintlnInfo("GetAccessTokenExpiration: ")
 	if expiration == t {
 		PrintlnInfo("GetAccessTokenExpiration: error")
-		return t, errors.New("Access token has not been found. Please, sign in using 'qovery auth' command. ")
+		return t, errors.New("Access token has not been found. Please, sign in using 'qovery auth' commandeeeee. ")
 	}
 
 	return expiration, nil
