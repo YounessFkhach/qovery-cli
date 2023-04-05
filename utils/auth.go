@@ -44,7 +44,7 @@ func RefreshAccessToken() error {
 		PrintlnInfo("new access token")
 		PrintlnInfo(tokens.AccessToken)
 		b, err := io.ReadAll(res.Body)
-		PrintlnInfo(b)
+		PrintlnInfo(string(b))
 		_ = SetAccessToken(AccessToken(tokens.AccessToken), expiredAt)
 	}
 	return nil
