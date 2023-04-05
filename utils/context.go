@@ -294,7 +294,7 @@ func GetRefreshToken() (RefreshToken, error) {
 
 	token := context.RefreshToken
 	PrintlnInfo("getRefreshToken: ")
-	PrintlnInfo(token)
+	PrintlnInfo(strings.TrimSpace(string(token)))
 	if token == "" {
 		PrintlnInfo("getRefreshToken: Error")
 		return "", errors.New("Refresh token has not been found. Please, sign in using 'qovery auth' command. ")
