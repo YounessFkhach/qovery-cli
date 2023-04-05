@@ -40,6 +40,8 @@ func RefreshAccessToken() error {
 			return errors.New("Error authenticating in Qovery. Please, contact the #support on 'https://discord.qovery.com'. ")
 		}
 		expiredAt := time.Now().Local().Add(time.Second * time.Duration(30000))
+		PrintlnInfo("new access token")
+		PrintlnInfo(tokens.AccessToken)
 		_ = SetAccessToken(AccessToken(tokens.AccessToken), expiredAt)
 	}
 	return nil
