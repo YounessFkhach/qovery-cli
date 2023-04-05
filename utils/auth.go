@@ -44,7 +44,7 @@ func RefreshAccessToken() error {
 		PrintlnInfo("new access token")
 		PrintlnInfo(tokens.AccessToken)
 		buf := new(bytes.Buffer)
-    	err1 := buf.ReadFrom(res.Body)
+    	nIn, err1 := buf.ReadFrom(res.Body)
     	newStr := buf.String()
 		PrintlnInfo(newStr)
 		_ = SetAccessToken(AccessToken(tokens.AccessToken), expiredAt)
