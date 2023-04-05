@@ -254,7 +254,9 @@ func GetAccessTokenExpiration() (time.Time, error) {
 	}
 
 	expiration := context.AccessTokenExpiration
+	PrintlnInfo("GetAccessTokenExpiration: ")
 	if expiration == t {
+		PrintlnInfo("GetAccessTokenExpiration: error")
 		return t, errors.New("Access token has not been found. Please, sign in using 'qovery auth' command. ")
 	}
 
@@ -291,7 +293,10 @@ func GetRefreshToken() (RefreshToken, error) {
 	}
 
 	token := context.RefreshToken
+	PrintlnInfo("getRefreshToken: ")
+	PrintlnInfo(token)
 	if token == "" {
+		PrintlnInfo("getRefreshToken: Error")
 		return "", errors.New("Refresh token has not been found. Please, sign in using 'qovery auth' command. ")
 	}
 

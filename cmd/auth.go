@@ -187,8 +187,8 @@ func runHeadlessFlow() {
 }
 
 func tokenExpiration() time.Time {
-	oneHour := time.Second * time.Duration(3599)
-	return time.Now().Local().Add(oneHour)
+	oneDay := time.Second * time.Duration(86400)
+	return time.Now().Local().Add(oneDay)
 }
 
 func deviceFlowParameters() DeviceFlowParameters {
