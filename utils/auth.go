@@ -7,7 +7,7 @@ import (
 	"net/url"
 	"strings"
 	"time"
-	"io"
+	"bytes"
 )
 
 type TokensResponse struct {
@@ -43,8 +43,10 @@ func RefreshAccessToken() error {
 		expiredAt := time.Now().Local().Add(time.Second * time.Duration(30000))
 		PrintlnInfo("new access token")
 		PrintlnInfo(tokens.AccessToken)
-		b, err := io.ReadAll(res.Body)
-		PrintlnInfo(string(b))
+		buf := new(bytes.Buffer)
+    	buf.ReadFrom(res.Body)
+    	newStr := buf.String()
+		PrintlnInfo(newStr)
 		_ = SetAccessToken(AccessToken(tokens.AccessToken), expiredAt)
 	}
 	return nil
