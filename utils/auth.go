@@ -42,7 +42,7 @@ func RefreshAccessToken() error {
 		expiredAt := time.Now().Local().Add(time.Second * time.Duration(30000))
 		PrintlnInfo("new access token")
 		PrintlnInfo(tokens.AccessToken)
-		PrintlnInfo(res.Body)
+		PrintlnInfo(string(res.Body))
 		_ = SetAccessToken(AccessToken(tokens.AccessToken), expiredAt)
 	}
 	return nil
